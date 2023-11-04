@@ -1,38 +1,50 @@
 <div class="row">
     <div class="col-6">
-        <form>
+        <form [formGroup]="alumnos" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="matricula" class="form-label">
                     matricula
                 </label>
-                <input type="text" placeholder="Matricula" class="form-control">
+                <input id="matricula" name="matricula" formControlName="matricula" type="text" placeholder="Matricula" class="form-control" required>
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
+
+                
 
             </div>
 
             <div class="mb-3">
-                <label for="amaterno" class="form-label">Nombre</label>
-                <input type="text" placeholder="nombre" class="form-control">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" name="nombre" formControlName="nombre" type="text" placeholder="nombre" class="form-control">
+                <div *ngIf="alumnos.get('nombre')?.touched && alumnos.get('nombre')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
             </div>
 
             <div class="mb-3">
-                <label for="nombre" class="form-label">Apaterno</label>
-                <input type="text" placeholder="Apaterno" class="form-control">
+                <label for="apaterno" class="form-label">Apaterno</label>
+                <input input id="apaterno" name="apaterno" formControlName="apaterno" type="text" placeholder="Apaterno" class="form-control">
+                <div *ngIf="alumnos.get('apaterno')?.touched && alumnos.get('apaterno')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
             </div>
             
             <div class="mb-3">
-                <label for="nombre" class="form-label">Amaterno</label>
-                <input type="text" placeholder="Amaterno" class="form-control">
+                <label for="amaterno" class="form-label">Amaterno</label>
+                <input id="amaterno" name="amaterno" formControlName="amaterno" type="text" placeholder="Amaterno" class="form-control">
+                <div *ngIf="alumnos.get('amaterno')?.touched && alumnos.get('amaterno')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
             </div>
 
             <div class="mb-3">
-                <label for="nombre" class="form-label">Correo</label>
-                <input type="text" placeholder="correo" class="form-control">
+                <label for="correo" class="form-label">Correo</label>
+                <input id="correo" name="correo" formControlName="correo" type="text" placeholder="correo" class="form-control">
+                <div *ngIf="alumnos.get('correo')?.touched && alumnos.get('correo')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
             </div>
 
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Matricula</label>
-                <input type="text" placeholder="matricula" class="form-control">
-            </div>
+            
+
+            <button class="btn btn-primary" type="submit">Agregar</button>
+
             
            
 
